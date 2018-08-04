@@ -11,7 +11,7 @@
         "plugin:react/recommended"
     ],
     "rules": {
-        "indent": [ 4, 1 ],
+        "indent": [ 4, 2 ],
 
         "template-curly-spacing": [ 2, "always" ],
         "array-bracket-spacing": [ 2, "always" ],
