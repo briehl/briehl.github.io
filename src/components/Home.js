@@ -8,7 +8,7 @@ class Home extends Component {
       <div>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Typography variant="h1" color="white" className="App-title">Welcome to My Webpage of sorta doom.</Typography>
+          <Typography variant="display1" color="inherit" className="App-title">Welcome to My Webpage of sorta doom.</Typography>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
