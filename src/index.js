@@ -4,7 +4,7 @@ import './css/index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-import { orange } from '@material-ui/core/colors'
+import { orange } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
   palette: {
@@ -12,7 +12,10 @@ const theme = createMuiTheme({
     main: '#FB8C00', // same as orange[600]
     dark: '#EF6C00',
     contrastText: 'rgb(0,0,0)',
-    primary: orange
+    primary: orange,
+    typography: {
+      useNextVariants: true
+    }
   }
 });
 
