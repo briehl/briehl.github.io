@@ -1,9 +1,13 @@
 {
-  "name": "test-app",
-  "version": "0.1.0",
+  "name": "riehl-site",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^1.4.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -21,6 +25,7 @@
   },
   "homepage": "https://briehl.github.io",
   "devDependencies": {
+    "@fortawesome/fontawesome-pro": "^5.8.1",
     "eslint": "^5.15.0",
     "eslint-plugin-react": "^7.10.0",
     "gh-pages": "^2.0.1"

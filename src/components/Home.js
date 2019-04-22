@@ -7,12 +7,9 @@ class Home extends Component {
     return (
       <div>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <Typography variant="display1" color="inherit" className="App-title">Welcome to My Webpage of sorta doom.</Typography>
+          <Typography variant="h3" color="inherit" className="App-title">[ Splash screen goes here ]</Typography>
+          <Typography variant="h6" color="inherit">This is a website. This is just the splash part. Stuff'll go here, like a picture. Then other things below.</Typography>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }

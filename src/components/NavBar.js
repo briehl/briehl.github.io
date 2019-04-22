@@ -10,6 +10,9 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
 
 const styles = {
   root: {
@@ -28,7 +31,7 @@ const NavBar = (props) => {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar position='static'>
+      <AppBar position='fixed' style={{background: 'transparent', boxShadow: 'none', color: 'white'}}>
         <Toolbar>
           <Grid container spacing={16} justify="space-between">
             <Grid item xs={9}>
@@ -43,7 +46,7 @@ const NavBar = (props) => {
               <Button color="inherit" component={Link} to="/about">About</Button>
             </Grid>
             <Grid item xs={1}>
-              <Button color="inherit" component={Link} to="/about">About</Button>
+              <IconButton color="inherit"><FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon></IconButton>
             </Grid>
           </Grid>
         </Toolbar>
@@ -51,5 +54,9 @@ const NavBar = (props) => {
     </div>
   )
 }
+
+NavBar.propTypes = {
+  classes: PropTypes.object.isRequired
+};
 
 export default withStyles(styles)(NavBar);
