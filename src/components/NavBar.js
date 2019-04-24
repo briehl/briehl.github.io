@@ -8,10 +8,11 @@ import NotificationsIcon from '@material-ui/icons/Notifications'
 import Button from '@material-ui/core/Button'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Link } from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 
 const styles = {
@@ -35,18 +36,27 @@ const NavBar = (props) => {
         <Toolbar>
           <Grid container spacing={16} justify="space-between">
             <Grid item xs={9}>
-              <Typography className={classes.title} component={Link} to="/" variant="title" color="inherit">
+              <Typography className={classes.title} component={RouterLink} to="/" variant="title" color="inherit">
                 Dissonance
               </Typography>
             </Grid>
+
             <Grid item xs={1}>
-              <Button color="inherit" component={Link} to="/about">About</Button>
+              <Button color="inherit" component={RouterLink} to="/about">About</Button>
             </Grid>
+
             <Grid item xs={1}>
-              <Button color="inherit" component={Link} to="/about">About</Button>
+              <Button color="inherit" component={RouterLink} to="/about">About</Button>
             </Grid>
+
             <Grid item xs={1}>
-              <IconButton color="inherit"><FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon></IconButton>
+              <IconButton href="https://www.linkedin.com/in/william-riehl-0509a84" color="inherit">
+                <FontAwesomeIcon icon={faLinkedin} />
+              </IconButton>
+
+              <IconButton href="https://www.github.com/briehl" color="inherit">
+                <FontAwesomeIcon icon={faGithub} />
+              </IconButton>
             </Grid>
           </Grid>
         </Toolbar>

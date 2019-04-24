@@ -11,6 +11,7 @@
   background-color: rgb(88, 87, 87);
   height: 100vh;
   color: white;
+  background: url('../media/cazadero_creek.jpg');
 }
 
 .App-title {
