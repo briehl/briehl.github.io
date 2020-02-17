@@ -1,0 +1,46 @@
+.navbarContainer {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    color: orange;
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.navbarBranding {
+    padding: 1em;
+    margin-left: 2em;
+}
+
+.navbarTabList {
+    display: flex;
+    flex-direction: row;
+    margin-right: 2em;
+}
+
+.navbarTabList > a {
+    text-decoration: none;
+}
+
+.navbarTab {
+    padding: 1em;
+    text-decoration: none;
+    color: orange;
+    font-weight: bold;
+
+}
+
+.selected .navbarTab, .navbarTab:hover {
+    border-bottom: 2px solid orange;
+}
+
+.socialLinks > a {
+    color: orange;
+    margin-right: 1em;
+}
+
+.socialLinks > a:hover {
+    color: orange;
+}
