@@ -1,6 +1,5 @@
 .navbarContainer {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 1rem 0 0.5rem;
     color: orange;
     display: flex;
     position: fixed;
@@ -10,14 +9,14 @@
 }
 
 .navbarBranding {
-    padding: 1em;
+    padding: 0.5rem 1rem;
     margin-left: 2em;
 }
 
 .navbarTabList {
     display: flex;
     flex-direction: row;
-    margin-right: 2em;
+    margin-right: 2rem;
 }
 
 .navbarTabList > a {
@@ -25,11 +24,10 @@
 }
 
 .navbarTab {
-    padding: 1em;
+    padding: 0.5rem 1rem;
     text-decoration: none;
     color: orange;
     font-weight: bold;
-
 }
 
 .selected .navbarTab, .navbarTab:hover {
