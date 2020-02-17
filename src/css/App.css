@@ -10,8 +10,9 @@
 .App-header {
   background-color: rgb(88, 87, 87);
   height: 100vh;
+  min-height: 100vh;
   color: white;
-  background: url('../media/cazadero_creek.jpg');
+  background: url('../media/spectrum.jpg');
 }
 
 .App-title {
