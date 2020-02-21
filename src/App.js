@@ -16,6 +16,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <RoutedNavBar />
+          <div style={{paddingTop: "5rem"}}></div>
           <Route exact path='/' component={Home} />
           <Route path='/projects' component={Projects} />
           <Route path='/resume' component={Resume} />

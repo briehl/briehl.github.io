@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Portfolio from './portfolio/Portfolio';
 
 export default class Projects extends Component {
     constructor(props) {
@@ -7,7 +8,7 @@ export default class Projects extends Component {
 
     render() {
         return (
-            <div>Some projects I've done. They're small.</div>
+            <Portfolio></Portfolio>
         )
     }
 }

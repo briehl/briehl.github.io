@@ -12,8 +12,6 @@ export function NavTabs(props) {
 }
 
 export function Tab(props) {
-    console.log(props);
-
     let tabButton = <div className={styles.navbarTab}>{props.label}</div>
     if (props.selected) {
         tabButton = <div className={styles.selected}>{tabButton}</div>
