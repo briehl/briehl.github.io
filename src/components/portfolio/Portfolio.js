@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
-import PortfolioCard from './PortfolioCard';
+import PortfolioCard, { CardModal } from './PortfolioCard';
 import projects from './projects.json';
 import styles from '../../css/Portfolio.module.css';
-import Projects from '../Projects';
 
 export default class Portfolio extends Component {
     constructor(props) {
         super(props);
         console.log(projects);
+        this.state = {
+            showModal: false
+        };
+    }
+
+    toggleModal = (projectId) => {
+        if (!projectId) {
+            projectId = false;
+        }
+        this.setState((state) => ({
+            showModal: projectId
+        }));
     }
 
     render() {
-        let projectCards = projects.map((project) => <PortfolioCard {...project} key={project.id}></PortfolioCard>)
+        console.log(this.state);
+        let projectCards = projects.map((project) =>
+            <PortfolioCard {...project} toggleFn={this.toggleModal.bind(this)} key={project.id}></PortfolioCard>)
         return (
-            <div className={styles.portfolio}>{projectCards}</div>
+            <div>
+                <div className={styles.portfolio}>{projectCards}</div>
+                <CardModal projectId={this.state.showModal}
+                    projectInfo={this.state.showModal ? projects[this.state.projectId] : null}
+                    onClose={this.toggleModal}/>
+            </div>
         )
     }
 }

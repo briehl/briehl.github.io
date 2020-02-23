@@ -12,7 +12,7 @@
   height: 100vh;
   min-height: 100vh;
   color: white;
-  background: url('../media/spectrum.jpg');
+  /* background: url('../media/spectrum.jpg'); */
 }
 
 .App-title {
