@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import PortfolioCard, { CardModal } from './PortfolioCard';
+import PortfolioCard from './PortfolioCard';
+import CardModal from './CardModal';
 import projects from './projects.json';
 import styles from '../../css/Portfolio.module.css';
 
 export default class Portfolio extends Component {
     constructor(props) {
         super(props);
-        console.log(projects);
         this.state = {
             showModal: false
         };

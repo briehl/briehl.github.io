@@ -11,13 +11,36 @@ const targets = {
   contact: '/contact'
 }
 
-export default function NavBar(props) {
-  const location = props.location.pathname;
-  return (
-    <div className={styles.navbarContainer}>
-      <Branding />
-      <div style={{marginLeft: "auto"}}>
-        <div style={{display: "flex"}}>
+export default class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      opacity: 0
+    }
+  }
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll.bind(this))
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll.bind(this))
+  }
+
+  handleScroll(e) {
+    const maxScroll = 150
+    let scrollTop = window.scrollY,
+        itemTranslate = Math.min(scrollTop/maxScroll, 0.8)
+
+    this.setState((state) => ({ opacity: itemTranslate }))
+  }
+
+  render() {
+    const location = this.props.location.pathname;
+    return (
+      <div className={styles.navbarContainer} style={{ backgroundColor: `rgba(0,0,0, ${this.state.opacity})` }}>
+        <Branding />
+        <div style={{marginLeft: "auto"}}>
           <NavTabs>
             <Tab label="Home" target="/" selected={location===targets.home} />
             <Tab label="Projects" target="/projects" selected={location===targets.projects} />
@@ -27,7 +50,10 @@ export default function NavBar(props) {
           </NavTabs>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
+NavBar.propTypes = {
+  location: PropTypes.object
+}

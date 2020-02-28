@@ -5,7 +5,7 @@
     "endDate": "",
     "url": "",
     "doi": "",
-    "shortText": "Computation of Microbial Ecosystems in Time and Space",
+    "blurb": "Computation of Microbial Ecosystems in Time and Space",
     "photoRoll": []
 }, {
     "id": "heartlight",
@@ -14,7 +14,7 @@
     "endDate": "",
     "url": "",
     "doi": "",
-    "shortText": "I gave her my heart. In a box. With a little mood lighting.",
+    "blurb": "I gave her my heart. In a box. With a little mood lighting.",
     "photoRoll": []
 }, {
     "id": "glamm",
@@ -23,7 +23,7 @@
     "endDate": "",
     "url": "",
     "doi": "",
-    "shortText": "Genome-linked Application for Metabolic Maps",
+    "blurb": "Genome-linked Application for Metabolic Maps",
     "photoRoll": []
 }, {
     "id": "kbaseNarrative",
@@ -32,7 +32,7 @@
     "endDate": "",
     "url": "",
     "doi": "",
-    "shortText": "The KBase Narrative Interface, a rather fancy set of extensions and modifications to the Jupyter Notebook",
+    "blurb": "The KBase Narrative Interface, a rather fancy set of extensions and modifications to the Jupyter Notebook",
     "photoRoll": []
 }, {
     "id": "kbaseFeeds",
@@ -41,15 +41,15 @@
     "endDate": "",
     "url": "",
     "doi": "",
-    "shortText": "KBase Feeds service and interface",
+    "blurb": "KBase Feeds service and interface",
     "photoRoll": []
 }, {
     "id": "new project!",
-    "name": "KBase Feeds",
+    "name": "New Project!",
     "startDate": "",
     "endDate": "",
     "url": "",
     "doi": "",
-    "shortText": "KBase Feeds service and interface",
+    "blurb": "Some kinda new project.",
     "photoRoll": []
 }]

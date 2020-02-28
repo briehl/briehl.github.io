@@ -13,12 +13,45 @@
     min-width: 300px;
     max-height: 400px;
     min-height: 400px;
-    border: 1px solid blue;
+    border: 3px solid blue;
     border-radius: 1rem;
     cursor: pointer;
+    transition-duration: 500ms;
 }
 
 .portfolioCardContainer:hover {
-    background-color: gray;
+    background-color: rgba(125,125,125,0.5);
     transition-duration: 500ms;
+}
+
+.portfolioCardHead {
+    height: 60%;
+    border-bottom: 1px dotted blue;
+    background-color: black;
+    color: white;
+}
+
+.portfolioCardTitle {
+    padding-top: 30%;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.modalBackdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.2);
+    padding: 5rem;
+}
+
+.modalBody {
+    background-color: #fff;
+    border-radius: 1rem;
+    max-width: 500px;
+    min-height: 300px;
+    margin: 0 auto;
+    padding: 3rem;
 }

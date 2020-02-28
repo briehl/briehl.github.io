@@ -6,6 +6,7 @@
     top: 0;
     width: 100%;
     overflow: hidden;
+    background-color: none;
 }
 
 .navbarBranding {
@@ -28,10 +29,12 @@
     text-decoration: none;
     color: orange;
     font-weight: bold;
+    border-bottom: 2px solid rgba(0,0,0,0.0);
 }
 
 .selected .navbarTab, .navbarTab:hover {
     border-bottom: 2px solid orange;
+    transition-duration: 500ms;
 }
 
 .socialLinks > a {
