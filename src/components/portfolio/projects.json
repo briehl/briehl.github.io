@@ -6,7 +6,8 @@
     "url": "",
     "doi": "",
     "blurb": "Computation of Microbial Ecosystems in Time and Space",
-    "photoRoll": []
+    "photoRoll": [],
+    "background": "rgba(0, 125, 0, 0.5)"
 }, {
     "id": "heartlight",
     "name": "Heart Light",
@@ -15,7 +16,8 @@
     "url": "",
     "doi": "",
     "blurb": "I gave her my heart. In a box. With a little mood lighting.",
-    "photoRoll": []
+    "photoRoll": [],
+    "background": "rgba(0, 125, 0, 0.5)"
 }, {
     "id": "glamm",
     "name": "GLAMM",
@@ -24,7 +26,8 @@
     "url": "",
     "doi": "",
     "blurb": "Genome-linked Application for Metabolic Maps",
-    "photoRoll": []
+    "photoRoll": [],
+    "background": "rgba(0, 125, 0, 0.5)"
 }, {
     "id": "kbaseNarrative",
     "name": "KBase Narrative",
@@ -33,7 +36,8 @@
     "url": "",
     "doi": "",
     "blurb": "The KBase Narrative Interface, a rather fancy set of extensions and modifications to the Jupyter Notebook",
-    "photoRoll": []
+    "photoRoll": [],
+    "background": "rgba(0, 125, 0, 0.5)"
 }, {
     "id": "kbaseFeeds",
     "name": "KBase Feeds",
@@ -42,7 +46,8 @@
     "url": "",
     "doi": "",
     "blurb": "KBase Feeds service and interface",
-    "photoRoll": []
+    "photoRoll": [],
+    "background": "rgba(0, 125, 0, 0.5)"
 }, {
     "id": "new project!",
     "name": "New Project!",
@@ -51,5 +56,6 @@
     "url": "",
     "doi": "",
     "blurb": "Some kinda new project.",
-    "photoRoll": []
+    "photoRoll": [],
+    "background": "rgba(0, 125, 0, 0.5)"
 }]

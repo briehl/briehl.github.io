@@ -6,15 +6,21 @@ import styles from '../../css/Portfolio.module.css';
 
 export default class Portfolio extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            showModal: false
-        };
+            showModal: ''
+        }
+        this.projectMap = {}
+    }
+
+    componentDidMount() {
+        projects.forEach(project => this.projectMap[project.id] = project)
     }
 
     toggleModal = (projectId) => {
+        console.log("Doing projectId: " + projectId)
         if (!projectId) {
-            projectId = false;
+            projectId = '';
         }
         this.setState((state) => ({
             showModal: projectId
@@ -29,7 +35,7 @@ export default class Portfolio extends Component {
             <div>
                 <div className={styles.portfolio}>{projectCards}</div>
                 <CardModal projectId={this.state.showModal}
-                    projectInfo={this.state.showModal ? projects[this.state.projectId] : null}
+                    projectInfo={this.state.showModal ? this.projectMap[this.state.showModal] : null}
                     onClose={this.toggleModal}/>
             </div>
         )

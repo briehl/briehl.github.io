@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../../css/Portfolio.module.css';
+import PropTypes from 'prop-types';
 
 export default class PortfolioCard extends Component {
     constructor(props) {
@@ -29,3 +30,14 @@ export default class PortfolioCard extends Component {
     }
 }
 
+PortfolioCard.propTypes = {
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    startDate: PropTypes.string,
+    endDate: PropTypes.string,
+    url: PropTypes.string,
+    doi: PropTypes.string,
+    blurb: PropTypes.string.isRequired,
+    photoRoll: PropTypes.array,
+    background: PropTypes.string.isRequired
+}

@@ -36,7 +36,7 @@ export default class NavBar extends React.Component {
   }
 
   render() {
-    const location = this.props.location.pathname;
+    const location = this.props.location.pathname
     return (
       <div className={styles.navbarContainer} style={{ backgroundColor: `rgba(0,0,0, ${this.state.opacity})` }}>
         <Branding />
