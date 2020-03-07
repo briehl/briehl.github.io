@@ -34,9 +34,12 @@ export default class Portfolio extends Component {
         return (
             <div>
                 <div className={styles.portfolio}>{projectCards}</div>
-                <CardModal projectId={this.state.showModal}
+                ${ this.state.showModal ?
+                    <CardModal projectId={this.state.showModal}
                     projectInfo={this.state.showModal ? this.projectMap[this.state.showModal] : null}
-                    onClose={this.toggleModal}/>
+                    onClose={this.toggleModal}/> :
+                    ''
+                }
             </div>
         )
     }

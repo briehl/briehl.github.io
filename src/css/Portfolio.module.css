@@ -16,7 +16,7 @@
     border: 3px solid blue;
     border-radius: 1rem;
     cursor: pointer;
-    transition-duration: 500ms;
+    overflow: hidden;
 }
 
 .portfolioCardContainer:hover {
@@ -26,7 +26,7 @@
 
 .portfolioCardHead {
     height: 60%;
-    border-bottom: 1px dotted blue;
+    border-bottom: 2px dotted blue;
     background-color: black;
     color: white;
 }
@@ -38,6 +38,8 @@
 }
 
 .modalBackdrop {
+    transition: opacity 500ms;
+    opacity: 0;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -45,6 +47,10 @@
     right: 0;
     background-color: rgba(0,0,0,0.2);
     padding: 5rem;
+}
+
+.visible {
+    opacity: 1;
 }
 
 .modalBody {

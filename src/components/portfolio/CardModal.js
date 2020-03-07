@@ -3,15 +3,30 @@ import styles from '../../css/Portfolio.module.css';
 import PropTypes from 'prop-types';
 
 export default class CardModal extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            didMount: false
+        };
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState((state) => ({ didMount: true }))
+        }, 0)
+    }
+
     render() {
-        if (!this.props.projectId) {
-            return null;
+        let modalBg = {
+        }
+        if (this.props.projectInfo) {
+            modalBg.backgroundColor = this.props.projectInfo.background;
         }
 
-        const modalBg = this.props.projectInfo ? { backgroundColor: this.props.projectInfo.background } : {};
+        const visibleClass = this.state.didMount ? styles.visible : '';
 
         return (
-            <div className={styles.modalBackdrop} style={modalBg}>
+            <div className={`${styles.modalBackdrop} ${visibleClass}`} style={modalBg}>
                 <div className={styles.modalBody}>
                     {this.props.children}
 
