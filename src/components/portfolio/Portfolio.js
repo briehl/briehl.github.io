@@ -30,11 +30,16 @@ export default class Portfolio extends Component {
     render() {
         console.log(this.state);
         let projectCards = projects.map((project) =>
-            <PortfolioCard {...project} toggleFn={this.toggleModal.bind(this)} key={project.id}></PortfolioCard>)
+            <PortfolioCard {...project}
+                           toggleFn={this.toggleModal.bind(this)}
+                           key={project.id}
+                           selected={project.id===this.state.showModal}>
+            </PortfolioCard>
+        )
         return (
             <div>
                 <div className={styles.portfolio}>{projectCards}</div>
-                ${ this.state.showModal ?
+                { this.state.showModal ?
                     <CardModal projectId={this.state.showModal}
                     projectInfo={this.state.showModal ? this.projectMap[this.state.showModal] : null}
                     onClose={this.toggleModal}/> :

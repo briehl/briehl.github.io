@@ -24,11 +24,19 @@
     transition-duration: 500ms;
 }
 
+.portfolioCardContainer.selected {
+    background-color: rgba(125,125,125,0.5);
+}
+
 .portfolioCardHead {
     height: 60%;
     border-bottom: 2px dotted blue;
     background-color: black;
     color: white;
+}
+
+.portfolioCardCopy {
+    padding: 1rem;
 }
 
 .portfolioCardTitle {
@@ -56,8 +64,8 @@
 .modalBody {
     background-color: #fff;
     border-radius: 1rem;
-    max-width: 500px;
-    min-height: 300px;
+    max-width: 80vw;
+    min-height: 50rem;
     margin: 0 auto;
     padding: 3rem;
 }

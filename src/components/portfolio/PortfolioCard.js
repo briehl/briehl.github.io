@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 export default class PortfolioCard extends Component {
     constructor(props) {
         super(props);
-        console.log('setting init state for ' + this.props.id);
         this.state = {
             zoomed: false
         }
@@ -19,9 +18,33 @@ export default class PortfolioCard extends Component {
     }
 
     render() {
+        const bgImage = this.props.bgImage ? process.env.PUBLIC_URL + '/images/' + this.props.bgImage : null;
+        let bgImageStyle = {};
+        if (bgImage) {
+            bgImageStyle = {
+                background: `url(${bgImage})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
+            }
+        }
+        // let bgImageLoc = null,
+        //     bgImage = null;
+        // if (this.props.projectInfo) {
+        //     bgImageLoc = process.env.PUBLIC_URL + '/images/' + this.props.projectInfo.background
+        //     bgImage = bgImageLoc
+        // }
+        // let modalBg = {};
+        // if (bgImage) {
+        //     modalBg = {
+        //         backgroundColor: `url(${bgImage})`,
+        //         // backgroundRepeat: 'no-repeat',
+        //         // backgroundSize: 'cover',
+        //         // opacity: 0.5
+        //     }
+        // }
         return (
-            <div className={styles.portfolioCardContainer} onClick={this.toggleZoom.bind(this)}>
-                <div className={styles.portfolioCardHead}>
+            <div className={`${styles.portfolioCardContainer} ${this.props.selected ? styles.selected : ''}`} onClick={this.toggleZoom.bind(this)}>
+                <div className={styles.portfolioCardHead} style={bgImageStyle}>
                     <div className={styles.portfolioCardTitle}>{this.props.name}</div>
                 </div>
                 <div className={styles.portfolioCardCopy}>{this.props.blurb}</div>
@@ -39,5 +62,6 @@ PortfolioCard.propTypes = {
     doi: PropTypes.string,
     blurb: PropTypes.string.isRequired,
     photoRoll: PropTypes.array,
-    background: PropTypes.string.isRequired
+    background: PropTypes.string.isRequired,
+    bgImage: PropTypes.string.isRequired
 }

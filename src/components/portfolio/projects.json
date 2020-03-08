@@ -7,7 +7,8 @@
     "doi": "",
     "blurb": "Computation of Microbial Ecosystems in Time and Space",
     "photoRoll": [],
-    "background": "rgba(0, 125, 0, 0.5)"
+    "background": "rgba(0, 125, 0, 0.5)",
+    "bgImage": "comets/comets_bg.png"
 }, {
     "id": "heartlight",
     "name": "Heart Light",
@@ -49,13 +50,13 @@
     "photoRoll": [],
     "background": "rgba(0, 125, 0, 0.5)"
 }, {
-    "id": "new project!",
-    "name": "New Project!",
+    "id": "siliconeHand",
+    "name": "A Hand to Hold",
     "startDate": "",
     "endDate": "",
     "url": "",
     "doi": "",
-    "blurb": "Some kinda new project.",
+    "blurb": "Her: I would like to try to hold your hand. Me: I'm 3000 miles away. Give me a minute to figure something out.",
     "photoRoll": [],
     "background": "rgba(0, 125, 0, 0.5)"
 }]
