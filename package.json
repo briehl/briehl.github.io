@@ -25,7 +25,7 @@
   "homepage": "https://briehl.github.io",
   "devDependencies": {
     "@fortawesome/fontawesome-pro": "^5.8.1",
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.2.0"
   },
   "browserslist": {
     "production": [
