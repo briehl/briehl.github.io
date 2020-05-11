@@ -8,7 +8,10 @@ export default class Projects extends Component {
 
     render() {
         return (
-            <Portfolio></Portfolio>
+            <div id="projects" className="page-section">
+                <h1>Projects</h1>
+                <Portfolio></Portfolio>
+            </div>
         )
     }
 }

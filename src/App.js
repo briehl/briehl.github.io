@@ -8,19 +8,16 @@ import Contact from './components/Contact';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 
-const RoutedNavBar = withRouter(props => <NavBar {...props}/>);
-
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
-          <RoutedNavBar />
-          <div style={{paddingTop: "5rem"}}></div>
-          <Route exact path='/' component={Home} />
-          <Route path='/projects' component={Projects} />
-          <Route path='/resume' component={Resume} />
-          <Route path='/contact' component={Contact} />
+          <NavBar />
+          <Home />
+          <Projects />
+          <Resume />
+          <Contact />
         </div>
       </Router>
     );

@@ -1,6 +1,5 @@
 .navbarContainer {
     padding: 1rem 0 0.5rem;
-    color: orange;
     display: flex;
     position: fixed;
     top: 0;
@@ -20,28 +19,20 @@
     margin-right: 2rem;
 }
 
-.navbarTabList > a {
+.navbarTabList a {
     text-decoration: none;
+    color: inherit;
 }
 
 .navbarTab {
     padding: 0.5rem 1rem;
     text-decoration: none;
-    color: orange;
     font-weight: bold;
-    border-bottom: 2px solid rgba(0,0,0,0.0);
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
 }
 
-.selected .navbarTab, .navbarTab:hover {
-    border-bottom: 2px solid orange;
-    transition-duration: 500ms;
-}
-
-.socialLinks > a {
-    color: orange;
-    margin-right: 1em;
-}
-
-.socialLinks > a:hover {
-    color: orange;
+.selected, .navbarTab:hover {
+    border-color: inherit !important;
+    transition-property: border-color;
+    transition-duration: 300ms;
 }

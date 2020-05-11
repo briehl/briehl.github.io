@@ -1,20 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: rgb(88, 87, 87);
-  height: 100vh;
-  min-height: 100vh;
-  color: white;
-  background: url('../media/spectrum.jpg');
-}
-
 .App-title {
   font-size: 1.5em;
   padding-top: 10vh;
@@ -24,7 +7,46 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.home-section {
+  background-color: rgb(174, 231, 228);
+  color: black;
+}
+
+.home-layout {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-right: 20%;
+  padding-left: 20%;
+  align-items: flex-start;
+}
+
+.home-text {
+  min-height: 28rem;
+  width: 50%;
+  background-color: white;
+  box-shadow: 4px 4px 6px 1px rgba(0, 0, 0, 0.55);
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.home-image {
+  padding-top: 15rem;
+  height: 15rem;
+  width: 50%;
+  max-width: 30rem;
+  min-width: 30rem;
+  background-color: cornflowerblue;
+  box-shadow: 4px 4px 6px 1px rgba(0, 0, 0, 0.55);
+  text-align: center;
+  margin-left: 2rem;
+}
+
+.page-section {
+  text-align: center;
+  min-height: 50rem;
+  padding-top: 5rem;
+}
+
+.social-icon {
+
 }

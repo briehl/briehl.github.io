@@ -10,7 +10,7 @@ import styles from '../../css/Navbar.module.css';
 export function Branding() {
     return (
         <div className={styles.navbarBranding}>
-            Digital Dissonance
+            <b>Bill Riehl</b>
         </div>
     );
 }

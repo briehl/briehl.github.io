@@ -1,0 +1,23 @@
+.contactContainer {
+    text-align: center;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: auto;
+    align-content: center;
+    justify-content: center;
+}
+
+.socialIcon {
+    padding: 2em;
+}
+
+.socialIcon a {
+    color: black;
+    transition-property: color;
+    transition-duration: 300ms;
+    text-decoration: none;
+}
+
+.socialIcon a:hover {
+    color: green;
+}
