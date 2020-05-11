@@ -68,6 +68,7 @@ export default class NavBar extends React.Component {
       for (let i=visibleElems.length-1; i>0; i--) {
         if (visibleElems[i]) {
           selectedIdx = i;
+          break;
         }
       }
     }
@@ -134,7 +135,6 @@ export default class NavBar extends React.Component {
                 return <this.NavTab {...tabProps}/>
               })
             }
-            {/* <SocialLinks/> */}
           </div>
         </div>
       </div>
