@@ -38,7 +38,16 @@ export default class NavBar extends React.Component {
     window.removeEventListener('scroll', this.handleScroll.bind(this))
   }
 
+  /**
+   * Scrolling does a few things.
+   * 1. Changes text and background color. Between the top of the page and some limit, the color
+   *   of text and bg fade from one thing to another. Text goes from black -> bluish, and
+   *   background color goes from bluish to black. This updates the state.
+   * 2. Detect what element is most in view and change the selected nav item based on that.
+   * @param {ScrollEvent} e
+   */
   handleScroll(e) {
+    // figure out the color setup
     const maxScroll = 550
     let scrollTop = window.scrollY,
         percentDown = scrollTop/maxScroll,
@@ -51,7 +60,19 @@ export default class NavBar extends React.Component {
         textB = Math.min(initBgB, initBgB * percentDown),
         opacity = 1 - Math.min(percentDown, 0.2)
 
+    // calculate scroll position
+    let selectedIdx = 0;
 
+    if (scrollTop > 20) {
+      const visibleElems = targets.map(target => isInView(document.querySelector(target), -300));
+      for (let i=visibleElems.length-1; i>0; i--) {
+        if (visibleElems[i]) {
+          selectedIdx = i;
+        }
+      }
+    }
+
+    // update the state
     this.setState((state) => ({
       opacity: opacity,
       bgR: r,
@@ -59,7 +80,8 @@ export default class NavBar extends React.Component {
       bgB: b,
       textR: textR,
       textG: textG,
-      textB: textB
+      textB: textB,
+      selectedIdx: selectedIdx
     }))
   }
 
@@ -75,8 +97,7 @@ export default class NavBar extends React.Component {
     return tabButton;
   }
 
-
-  handleTabScroll(e) {
+  handleTabClick(e) {
     e.preventDefault();
     const target = e.currentTarget.getAttribute('href')
     const elem = document.querySelector(target)
@@ -86,8 +107,6 @@ export default class NavBar extends React.Component {
       inline: 'nearest'
     })
   }
-
-
 
   render() {
     let newBgColor = `rgba(${this.state.bgR}, ${this.state.bgG}, ${this.state.bgB}, ${this.state.opacity})`;
@@ -108,7 +127,7 @@ export default class NavBar extends React.Component {
                   key: idx,
                   label: targetLabels[idx],
                   target: target,
-                  onClick: this.handleTabScroll,
+                  onClick: this.handleTabClick,
                   selected: this.state.selectedIdx === idx,
                   ...textColor
                 };
@@ -121,6 +140,11 @@ export default class NavBar extends React.Component {
       </div>
     )
   }
+}
+
+function isInView(element, offset) {
+  const rect = element.getBoundingClientRect();
+  return rect.top <= (window.innerHeight + offset) && rect.bottom >= 0;
 }
 
 NavBar.propTypes = {

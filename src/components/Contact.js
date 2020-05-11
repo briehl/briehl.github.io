@@ -27,7 +27,7 @@ export default class Contact extends Component {
         <h1>Contact</h1>
         If so inclined, you can contact me through...
         <div className={styles.contactContainer}>
-          {contacts.map(contact => <SocialIcon {...contact}/>)}
+          {contacts.map(contact => <SocialIcon {...contact} key={contact.name}/>)}
         </div>
       </div>
     )
