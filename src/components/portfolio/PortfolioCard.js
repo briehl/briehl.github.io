@@ -46,6 +46,7 @@ export default class PortfolioCard extends Component {
             <div className={`${styles.portfolioCardContainer} ${this.props.selected ? styles.selected : ''}`} onClick={this.toggleZoom.bind(this)}>
                 <div className={styles.portfolioCardHead} style={bgImageStyle}>
                     <div className={styles.portfolioCardTitle}>{this.props.name}</div>
+                    <div className={styles.portfolioCardDate}>{this.props.startDate} - {this.props.endDate}</div>
                 </div>
                 <div className={styles.portfolioCardCopy}>{this.props.blurb}</div>
             </div>
