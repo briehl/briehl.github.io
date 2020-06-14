@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { createPortal } from 'react-dom';
 import styles from '../../css/Portfolio.module.css';
 import PropTypes from 'prop-types';
 
@@ -17,28 +18,30 @@ export default class CardModal extends Component {
     }
 
     render() {
-        let modalBg = {
-        }
+        let modalBg = {}
         if (this.props.projectInfo) {
             modalBg.backgroundColor = this.props.projectInfo.background;
         }
 
         const visibleClass = this.state.didMount ? styles.visible : '';
 
-        return (
-            <div className={`${styles.modalBackdrop} ${visibleClass}`} style={modalBg}>
-                <div className={styles.modalBody}>
-                    {this.props.children}
-
-                    <h2>I'm the card modal for {this.props.projectId}!</h2>
-                    <div className="footer">
-                        <button onClick={() => { this.props.onClose(false) } }>
-                            Close
-                        </button>
+        return createPortal(
+            <div className={`${styles.modalBackdrop} ${visibleClass}`} style={modalBg} onClick={() => this.props.onClose(false)}>
+                <div onClick={e => e.stopPropagation()} className={styles.modalOuter}>
+                    <div className={styles.modalHeader}>
+                        {this.props.projectInfo.name}
+                        <div style={{marginLeft: 'auto'}}>
+                            <span className={`fa fa-times ${styles.modalCloseX}`}
+                                onClick={() => this.props.onClose(false)}></span>
+                        </div>
+                    </div>
+                    <div className={styles.modalBody}>
+                        {this.props.children}
                     </div>
                 </div>
-            </div>
-        )
+            </div>,
+            document.body
+        );
     }
 }
 
@@ -54,6 +57,7 @@ CardModal.propTypes = {
         doi: PropTypes.string,
         blurb: PropTypes.string.isRequired,
         photoRoll: PropTypes.array,
-        background: PropTypes.string.isRequired
+        background: PropTypes.string.isRequired,
+        bgImage: PropTypes.string,
     })
 }

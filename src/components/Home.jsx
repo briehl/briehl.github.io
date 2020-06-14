@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../media/logo.svg';
 
 class Home extends Component {
   render() {

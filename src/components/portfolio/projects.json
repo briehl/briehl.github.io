@@ -18,7 +18,7 @@
     "doi": "",
     "blurb": "I gave her my heart. In a box. With a little mood lighting.",
     "photoRoll": [],
-    "background": "rgba(0, 125, 0, 0.5)"
+    "background": "rgba(125, 0, 0, 0.5)"
 }, {
     "id": "glamm",
     "name": "GLAMM",
@@ -28,7 +28,7 @@
     "doi": "",
     "blurb": "Genome-linked Application for Metabolic Maps",
     "photoRoll": [],
-    "background": "rgba(0, 125, 0, 0.5)",
+    "background": "rgba(75, 75, 75, 0.5)",
     "bgImage": "glamm/glamm_bg.png"
 }, {
     "id": "kbaseNarrative",
@@ -39,7 +39,7 @@
     "doi": "",
     "blurb": "The KBase Narrative Interface, a rather fancy set of extensions and modifications to the Jupyter Notebook",
     "photoRoll": [],
-    "background": "rgba(0, 125, 0, 0.5)",
+    "background": "rgba(33, 150, 243, 0.5)",
     "bgImage": "kbaseNarrative/narrative_bg.png"
 }, {
     "id": "kbaseFeeds",
@@ -50,7 +50,7 @@
     "doi": "",
     "blurb": "KBase Feeds service and interface",
     "photoRoll": [],
-    "background": "rgba(0, 125, 0, 0.5)",
+    "background": "rgba(33, 150, 243, 0.5)",
     "bgImage": "kbaseFeeds/feeds_bg.png"
 }, {
     "id": "siliconeHand",
@@ -61,6 +61,6 @@
     "doi": "",
     "blurb": "Her: I would like to try to hold your hand. Me: I'm 3000 miles away. Give me a minute to figure something out.",
     "photoRoll": [],
-    "background": "rgba(0, 125, 0, 0.5)",
+    "background": "rgba(125, 0, 0, 0.5)",
     "bgImage": "siliconeHand/hand_bg.jpg"
 }]
