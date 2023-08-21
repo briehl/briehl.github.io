@@ -1,0 +1,40 @@
+.navbar{
+    &_container {
+        padding: 1rem 0 0.5rem;
+        display: flex;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+        background-color: none;
+    }
+
+    &_branding {
+        padding: 0.5rem 1rem;
+        margin-left: 2em;
+    }
+
+    &_tab_list {
+        display: flex;
+        flex-direction: row;
+        margin-right: 2rem;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
+    &_tab {
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        font-weight: bold;
+        border-bottom: 2px solid rgba(0, 0, 0, 0);
+
+        :hover {
+            border-color: inherit !important;
+            transition-property: border-color;
+            transition-duration: 300ms;
+        }
+    }
+}
