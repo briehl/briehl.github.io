@@ -2,14 +2,18 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.scss';
 import Home from '../components/Home';
+import Projects from '../components/Projects';
 import Resume from '../components/Resume';
 import Contact from '../components/Contact';
+import Navbar, {defaultNavbarProps} from '../components/Navbar';
 
 export default function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div>
+        <Navbar { ...defaultNavbarProps }/>
         <Home />
+        <Projects />
         <Resume />
         <Contact />
         <header className="App-header">
