@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, PropsWithChildren } from 'react';
 import classes from './Portfolio.module.scss';
 import projects from '../assets/projects.json';
 
@@ -21,17 +21,16 @@ interface PortfolioCardProps {
     toggleFn: Function;
 }
 
-const Portfolio: FC<React.PropsWithChildren> = ({children}) => {
-    const [showModal, setShowModal] = useState('');
-    const projectMap = new Map<string, PortfolioCardProps>();
+interface CardModalProps {
+    projectInfo?: Project;
+    onClose: Function;
+}
 
-    useEffect(() => {
-        projects.forEach((p) => projectMap.set(p.id, {
-            project: p,
-            isSelected: p.id === showModal,
-            toggleFn: toggleModal
-        }));
-    });
+const Portfolio: FC = () => {
+    console.log('here.');
+    const [showModal, setShowModal] = useState('');
+    const projectMap = new Map<string, Project>();
+    projects.forEach((p) => projectMap.set(p.id, p));
 
     const toggleModal = (projectId: string | null) => {
         if (!projectId) {
@@ -40,39 +39,32 @@ const Portfolio: FC<React.PropsWithChildren> = ({children}) => {
         setShowModal(projectId);
     }
 
-    // let projectCards = Array<PortfolioCard>
-
-    // let projectCards = projects.map((project) =>
-    //     <PortfolioCard {...projectMap.get(project.id)}
-    //                     key={project.id}>
-    //     </PortfolioCard>
-    // );
-
-// //         let projectCards = projects.map((project) =>
-// //             <PortfolioCard {...project}
-// //                            toggleFn={this.toggleModal.bind(this)}
-// //                            key={project.id}
-// //                            selected={project.id===this.state.showModal}>
-// //             </PortfolioCard>
-// //         )
-
-
     return (
-        <div className={classes.portfolio}>
+        <>
+            <div className={classes.portfolio}>
+                {
+                    projects.map((project) =>
+                        <PortfolioCard project={project}
+                            toggleFn = {toggleModal}
+                            key = {project.id}
+                            isSelected={project.id === showModal}>
+                        </PortfolioCard>
+                    )
+                }
+            </div>
             {
-                projects.map((project) =>
-                    <PortfolioCard project={project}
-                        toggleFn = {toggleModal}
-                        key = {project.id}
-                        isSelected={project.id === showModal}>
-                    </PortfolioCard>
-                )
+                showModal ?
+                <CardModal
+                    projectInfo={projectMap.get(showModal)}
+                    onClose={toggleModal}>
+                </CardModal> :
+                ''
             }
-        </div>
+        </>
     )
 }
 
-const PortfolioCard: FC<React.PropsWithChildren<PortfolioCardProps>> = (props) => {
+const PortfolioCard: FC<PropsWithChildren<PortfolioCardProps>> = (props) => {
     const [zoomed, setZoomed] = useState(false);
 
     const toggleZoom = () => {
@@ -80,7 +72,7 @@ const PortfolioCard: FC<React.PropsWithChildren<PortfolioCardProps>> = (props) =
         props.toggleFn(props.project.id);
     }
 
-    const bgImage = props.project.bgImage ? process.env.PUBLIC_URL + '/images/' + props.project.bgImage : null;
+    const bgImage = props.project.bgImage ? process.env.PUBLIC_URL + '/assets/' + props.project.bgImage : null;
     let bgImageStyle = {};
     if (bgImage) {
         bgImageStyle = {
@@ -101,74 +93,82 @@ const PortfolioCard: FC<React.PropsWithChildren<PortfolioCardProps>> = (props) =
     );
 }
 
-export default Portfolio;
+const CardModal: FC<PropsWithChildren<CardModalProps>> = (props) => {
+    const [isMounted, setIsMounted] = useState(false);
 
-// export default class PortfolioCard extends Component {
+    console.log(props);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsMounted(true);
+        }, 0);
+    });
+
+    if (!props.projectInfo) {
+        return (<></>);
+    }
+
+    const visibleClass = isMounted ? classes.visible : '';
+    return (
+        <div className={`${classes.modal_backdrop} ${visibleClass}`} style={{backgroundColor: props.projectInfo.background}}>
+            <div className={classes.modal_body}>
+                {props.children}
+
+                <h2>Hi! I'm the card modal for {props.projectInfo.id}!</h2>
+                <div className={classes.modal_footer}>
+                    <button onClick={() => props.onClose(false)}>
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+// export default class CardModal2 extends Component {
 //     constructor(props) {
 //         super(props);
 //         this.state = {
-//             zoomed: false
-//         }
-//    }
+//             didMount: false
+//         };
+//     }
 
-//     toggleZoom() {
-//         this.setState((state) => ({
-//             zoomed: !state.zoomed
-//         }))
-//         this.props.toggleFn(this.props.id);
+//     componentDidMount() {
+//         setTimeout(() => {
+//             this.setState((state) => ({ didMount: true }))
+//         }, 0)
 //     }
 
 //     render() {
-//         const bgImage = this.props.bgImage ? process.env.PUBLIC_URL + '/images/' + this.props.bgImage : null;
-//         let bgImageStyle = {};
-//         if (bgImage) {
-//             bgImageStyle = {
-//                 background: `url(${bgImage})`,
-//                 backgroundRepeat: 'no-repeat',
-//                 backgroundSize: 'cover'
-//             }
+//         let modalBg = {
 //         }
-//         // let bgImageLoc = null,
-//         //     bgImage = null;
-//         // if (this.props.projectInfo) {
-//         //     bgImageLoc = process.env.PUBLIC_URL + '/images/' + this.props.projectInfo.background
-//         //     bgImage = bgImageLoc
-//         // }
-//         // let modalBg = {};
-//         // if (bgImage) {
-//         //     modalBg = {
-//         //         backgroundColor: `url(${bgImage})`,
-//         //         // backgroundRepeat: 'no-repeat',
-//         //         // backgroundSize: 'cover',
-//         //         // opacity: 0.5
-//         //     }
-//         // }
+//         if (this.props.projectInfo) {
+//             modalBg.backgroundColor = this.props.projectInfo.background;
+//         }
+
+//         const visibleClass = this.state.didMount ? styles.visible : '';
+
 //         return (
-//             <div className={`${styles.portfolioCardContainer} ${this.props.selected ? styles.selected : ''}`} onClick={this.toggleZoom.bind(this)}>
-//                 <div className={styles.portfolioCardHead} style={bgImageStyle}>
-//                     <div className={styles.portfolioCardTitle}>{this.props.name}</div>
-//                     <div className={styles.portfolioCardDate}>{this.props.startDate} - {this.props.endDate}</div>
+//             <div className={`${styles.modalBackdrop} ${visibleClass}`} style={modalBg}>
+//                 <div className={styles.modalBody}>
+//                     {this.props.children}
+
+//                     <h2>I'm the card modal for {this.props.projectId}!</h2>
+//                     <div className="footer">
+//                         <button onClick={() => { this.props.onClose(false) } }>
+//                             Close
+//                         </button>
+//                     </div>
 //                 </div>
-//                 <div className={styles.portfolioCardCopy}>{this.props.blurb}</div>
 //             </div>
 //         )
 //     }
 // }
 
-// PortfolioCard.propTypes = {
-//     id: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-//     startDate: PropTypes.string,
-//     endDate: PropTypes.string,
-//     url: PropTypes.string,
-//     doi: PropTypes.string,
-//     blurb: PropTypes.string.isRequired,
-//     photoRoll: PropTypes.array,
-//     background: PropTypes.string.isRequired,
-//     bgImage: PropTypes.string.isRequired
-// }
 
-// export default Portfolio;
+export default Portfolio;
+
+
 
 // // export default class Portfolio2 extends Component {
 // //     constructor(props) {
